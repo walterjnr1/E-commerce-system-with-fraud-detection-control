@@ -1,0 +1,10 @@
+{
+  "require": {
+    "jwadhams/json-logic-php": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "TechParts\\": "src/"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@media (max-width: 1024px) {
+         .grid-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+      @media (max-width: 768px) {
+         .grid-cols-4, .grid-cols-3, .grid-cols-2 { grid-template-columns: 1fr !important; }
+         .md\:grid-cols-2 { grid-template-columns: 1fr !important; }
+         .md\:grid-cols-3 { grid-template-columns: 1fr !important; }
+         .md\:flex-row { flex-direction: column !important; }
+         .md\:text-5xl { font-size: 2rem !important; }
+         .md\:text-xl { font-size: 1rem !important; }
+         .md\:mb-0 { margin-bottom: 1rem !important; }
+         .md\:w-1\/2 { width: 100% !important; }
+         .md\:max-w-2xl { max-width: 100% !important; }
+      }
+      @media (max-width: 640px) {
+         .container { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+         .w-72, .max-w-lg, .max-w-2xl { width: 100% !important; max-width: 100% !important; }
+         .h-56 { height: 10rem !important; }
+         .p-8 { padding: 1.5rem !important; }
+         .rounded-xl, .rounded-2xl { border-radius: 1rem !important; }
+         .text-4xl, .text-3xl { font-size: 1.5rem !important; }
+         .py-20, .py-16 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+         .pt-36 { padding-top: 5rem !important; }
+         .pb-28 { padding-bottom: 2rem !important; }
+      }
+      /* Modal responsive */
+      #contactModal .max-w-lg { max-width: 95vw !important; }
+      /* Hide scrollbars on mobile for modal */
+      @media (max-width: 480px) {
+         #contactModal form { max-height: 70vh; overflow-y: auto; }
+      }
+      /* Navbar mobile styles */
+      .mobile-nav {
+         display: none;
+         position: absolute;
+         top: 100%;
+         left: 0;
+         width: 100%;
+         background: #fff;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+         z-index: 100;
+      }
+      .mobile-nav.open {
+         display: block;
+         animation: fadeInDown 0.2s;
+      }
+      @keyframes fadeInDown {
+         from { opacity: 0; transform: translateY(-10px);}
+         to { opacity: 1; transform: translateY(0);}
+      }
+      .mobile-nav-link {
+         display: block;
+         padding: 1rem 1.5rem;
+         border-bottom: 1px solid #f3f4f6;
+         color: #4f46e5;
+         font-weight: 600;
+         text-decoration: none;
+      }
+      .mobile-nav-link:last-child {
+         border-bottom: none;
+      }
+      .mobile-nav-link:hover {
+         background: #f3f4f6;
+      }
+      .mobile-nav-toggle {
+         display: none;
+         background: none;
+         border: none;
+         font-size: 2rem;
+         color: #4f46e5;
+         cursor: pointer;
+         margin-left: auto;
+      }
+      @media (max-width: 1024px) {
+         .desktop-nav { display: none !important; }
+         .mobile-nav-toggle { display: block !important; }
+      }
+      @media (min-width: 1025px) {
+         .mobile-nav, .mobile-nav-toggle { display: none !important; }
+         .desktop-nav { display: flex !important; }
+      }
