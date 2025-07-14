@@ -29,7 +29,7 @@ if (isset($_POST['btnprofile'])) {
         } else {
             // Update user
             
-                $stmt = $conn->prepare("UPDATE users SET name=?, email=?, phone=? WHERE id=?");
+                $stmt = $conn->prepare("UPDATE users SET full_name=?, email=?, phone=? WHERE id=?");
                 $stmt->bind_param("sssi", $new_name, $new_email, $new_phone, $user_id);
             }
             if ($stmt->execute()) {
@@ -38,10 +38,10 @@ if (isset($_POST['btnprofile'])) {
 
                 //activity log
                 $operation = "updated profile on $current_date";
-                log_activity($conn, $manager_id, $role, $operation, $ip_address);
+                log_activity($conn, $user_id, $role, $operation, $ip_address);
 
                 //redirect to profile page after 2 seconds
-                header("Refresh:2; url=profile");
+                header("Refresh:2; url=profile.php");
 
                 $success = "Profile updated successfully.";
                 $name = $new_name;
@@ -86,25 +86,25 @@ if (isset($_POST['btnprofile'])) {
                     <!-- Profile Info -->
                     <div class="flex flex-col items-center md:items-start md:w-1/3">
                         <div class="w-28 h-28 rounded-full bg-indigo-100 flex items-center justify-center text-4xl font-bold text-indigo-700 mb-4">
-                            <?php echo strtoupper(substr($row_manager['name'], 0, 1)); ?>
+                            <?php echo strtoupper(substr($row_user['full_name'], 0, 1)); ?>
                         </div>
-                        <div class="mb-2 text-xl font-semibold"><?php echo htmlspecialchars($row_manager['name']); ?></div>
-                        <div class="mb-2 text-gray-500"><?php echo htmlspecialchars($row_manager['email']); ?></div>
-                        <div class="mb-2 text-gray-400 text-sm">Role: <?php echo htmlspecialchars($row_manager['role']); ?></div>
+                        <div class="mb-2 text-xl font-semibold"><?php echo htmlspecialchars($row_user['full_name']); ?></div>
+                        <div class="mb-2 text-gray-500"><?php echo htmlspecialchars($row_user['email']); ?></div>
+                        <div class="mb-2 text-gray-400 text-sm">Role: <?php echo htmlspecialchars($row_user['role']); ?></div>
                     </div>
                     <!-- Profile Edit Form -->
                     <form class="flex-1 space-y-6" method="post" action="">
                         <div>
                             <label class="block text-gray-700 font-medium mb-1" for="name">Full Name</label>
-                            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($row_manager['name']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" required>
+                            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($row_user['full_name']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" required>
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1" for="email">Email Address</label>
-                            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($row_manager['email']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" required>
+                            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($row_user['email']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" required>
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1" for="phone">Phone</label>
-                            <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($row_manager['phone']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" required>
+                            <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($row_user['phone']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" required>
                         </div>
                        
                         <div>

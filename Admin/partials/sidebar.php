@@ -39,7 +39,7 @@
     Checkout Attempts
   </a>
   <!-- Profile -->
-  <a href="profile" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-indigo-50 transition font-medium">
+  <a href="profile.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-indigo-50 transition font-medium">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path d="M5.121 17.804A13.937 13.937 0 0112 15c2.485 0 4.797.755 6.879 2.047M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
@@ -66,7 +66,7 @@
       <rect x="3" y="7" width="18" height="10" rx="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M9 9l6 6m0-6l-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    Black-Listed User
+    Black-Listed Customer
   </a>
   <!-- Activity Logs -->
   <a href="activity-logs.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-indigo-50 transition font-medium">

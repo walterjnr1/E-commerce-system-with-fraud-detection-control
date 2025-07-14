@@ -282,10 +282,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
         // Sum all weights for this order
         $risk_score = sumRiskWeight($conn, $order_id);
 
-        // --- MODIFIED FRAUD LOGIC: Calculate total_weight for user and handle blacklist/error ---
+                // --- MODIFIED FRAUD LOGIC: Calculate total_weight for user *for today only* and handle blacklist/error ---
         $total_weight = 0;
         $signal_types = [];
-        $stmt = $conn->prepare("SELECT signal_type, SUM(weight) FROM risk_signals WHERE user_id=? GROUP BY signal_type");
+        $stmt = $conn->prepare("SELECT signal_type, SUM(weight) 
+                                FROM risk_signals 
+                                WHERE user_id=? AND DATE(created_at)=CURDATE()
+                                GROUP BY signal_type");
         $stmt->bind_param('i', $user_id);
         $stmt->execute();
         $stmt->bind_result($signal_type, $weight_sum);
@@ -298,7 +301,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
         if ($total_weight > 30) {
             lockUserAccount($conn, $user_id);
             insertFraudCase($conn, $user_id, $total_weight, 'checkout');
-            $checkoutError = "Checkout blocked due to suspicious activity. Signals: " . implode(', ', $signal_types) . ". Please contact support.";
+            $checkoutError = "Checkout blocked due to suspicious activity. Signals: " . implode(', ', $signal_types) . ". Please Email technical Team.";
             $conn->commit();
             goto end_checkout;
         }

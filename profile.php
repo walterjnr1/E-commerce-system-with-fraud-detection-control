@@ -9,7 +9,7 @@ $success = '';
 $error = '';
 
 // Fetch user and address info
-$stmt = $conn->prepare(" SELECT u.email, u.full_name, u.phone, a.id as address_id, a.label, a.line1, a.line2, a.city, a.state, a.postal_code, a.country_iso2
+$stmt = $conn->prepare(" SELECT u.email, u.full_name, u.phone, a.id as address_id, a.label, a.line1, a.city, a.state, a.postal_code, a.country
     FROM users u LEFT JOIN addresses a ON u.id = a.user_id AND a.label = 'shipping' WHERE u.id = ? LIMIT 1
 ");
 $stmt->bind_param('i', $user_id);
@@ -22,15 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $full_name = trim($_POST['full_name'] ?? '');
     $phone = trim($_POST['phone'] ?? '');
     $line1 = trim($_POST['line1'] ?? '');
-    $line2 = trim($_POST['line2'] ?? '');
     $city = trim($_POST['city'] ?? '');
     $state = trim($_POST['state'] ?? '');
     $postal_code = trim($_POST['postal_code'] ?? '');
-    $country_iso2 = strtoupper(trim($_POST['country_iso2'] ?? ''));
+    $country = strtoupper(trim($_POST['country'] ?? ''));
 
-    if (!$full_name || !$line1 || !$city || !$country_iso2) {
-        $error = "Please fill in all required fields.";
-    } else {
+  
         // Update user
         $stmt = $conn->prepare("UPDATE users SET full_name=?, phone=? WHERE id=?");
         $stmt->bind_param('ssi', $full_name, $phone, $user_id);
@@ -38,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Update or insert address
         if ($user['address_id']) {
-            $stmt = $conn->prepare("UPDATE addresses SET line1=?, line2=?, city=?, state=?, postal_code=?, country_iso2=? WHERE id=?");
-            $stmt->bind_param('ssssssi', $line1, $line2, $city, $state, $postal_code, $country_iso2, $user['address_id']);
+            $stmt = $conn->prepare("UPDATE addresses SET line1=?, city=?, state=?, postal_code=?, country=? WHERE id=?");
+            $stmt->bind_param('sssssi', $line1, $city, $state, $postal_code, $country, $user['address_id']);
             $stmt->execute();
 
            // Activity log
@@ -47,15 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         log_activity($conn, $user_id, $role, $operation, $ip_address);
 
         } else {
-            $stmt = $conn->prepare("INSERT INTO addresses (user_id, label, line1, line2, city, state, postal_code, country_iso2) VALUES (?, 'shipping', ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('issssss', $user_id, $line1, $line2, $city, $state, $postal_code, $country_iso2);
+            $stmt = $conn->prepare("INSERT INTO addresses (user_id, label, line1, city, state, postal_code, country_iso2) VALUES (?, 'shipping', ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('isssss', $user_id, $line1, $city, $state, $postal_code, $country_iso2);
             $stmt->execute();
         }
 
         $success = "Profile updated successfully.";
         header("Location: profile.php?success=1");
     }
-}
+
 
 if (isset($_GET['success'])) {
     $success = "Profile updated successfully.";
@@ -63,7 +60,7 @@ if (isset($_GET['success'])) {
 
 // Refresh user/address info after update
 $stmt = $conn->prepare("
-    SELECT u.email, u.full_name, u.phone, a.id as address_id, a.label, a.line1, a.line2, a.city, a.state, a.postal_code, a.country_iso2
+    SELECT u.email, u.full_name, u.phone, a.id as address_id, a.label, a.line1, a.city, a.state, a.postal_code, a.country
     FROM users u
     LEFT JOIN addresses a ON u.id = a.user_id AND a.label = 'shipping'
     WHERE u.id = ?
@@ -120,10 +117,7 @@ $user = $result->fetch_assoc();
           <label for="line1">Address Line 1 <span style="color:#e11d48">*</span></label>
           <input type="text" id="line1" name="line1" required value="<?php echo htmlspecialchars($user['line1'] ?? ''); ?>">
         </div>
-        <div class="form-group">
-          <label for="line2">Address Line 2</label>
-          <input type="text" id="line2" name="line2" value="<?php echo htmlspecialchars($user['line2'] ?? ''); ?>">
-        </div>
+       
         <div class="form-group">
           <label for="city">City <span style="color:#e11d48">*</span></label>
           <input type="text" id="city" name="city" required value="<?php echo htmlspecialchars($user['city'] ?? ''); ?>">
@@ -137,9 +131,9 @@ $user = $result->fetch_assoc();
           <input type="text" id="postal_code" name="postal_code" value="<?php echo htmlspecialchars($user['postal_code'] ?? ''); ?>">
         </div>
         <div class="form-group">
-          <label for="country_iso2">Country (ISO 2-letter) <span style="color:#e11d48">*</span></label>
-          <input type="text" id="country_iso2" name="country_iso2" maxlength="2" required style="text-transform:uppercase"
-            value="<?php echo htmlspecialchars($user['country_iso2'] ?? ''); ?>">
+          <label for="country_iso2">Country <span style="color:#e11d48">*</span></label>
+          <input type="text" id="country" name="country" maxlength="2" required style="text-transform:uppercase"
+            value="<?php echo htmlspecialchars($user['country'] ?? ''); ?>">
         </div>
         <button type="submit" class="form-btn"><i class="fas fa-save"></i> Update Profile</button>
       </form>
