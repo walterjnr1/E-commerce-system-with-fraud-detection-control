@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2025 at 12:23 AM
+-- Generation Time: Jul 22, 2025 at 03:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -88,7 +88,24 @@ INSERT INTO `activity_logs` (`id`, `user_id`, `role`, `operation`, `ip_address`,
 (4064, '4', 'customer', 'order a product on : 2025-07-11 21:18:53', '::1', '2025-07-11 22:18:53'),
 (4065, '4', 'customer', 'order a product on : 2025-07-11 21:44:10', '::1', '2025-07-11 22:44:10'),
 (4066, '4', 'customer', 'order a product on : 2025-07-11 21:45:23', '::1', '2025-07-11 22:45:23'),
-(4067, '5', 'Admin', 'logged in as Admin on: 2025-07-11 22:06:24', '::1', '2025-07-11 23:06:24');
+(4067, '5', 'Admin', 'logged in as Admin on: 2025-07-11 22:06:24', '::1', '2025-07-11 23:06:24'),
+(4068, '4', 'customer', 'logged in as customer on: 2025-07-14 07:04:38', '::1', '2025-07-14 08:04:38'),
+(4069, '4', 'customer', 'order a product on : 2025-07-14 07:20:49', '::1', '2025-07-14 08:20:49'),
+(4070, '4', 'customer', 'order a product on : 2025-07-14 07:21:39', '::1', '2025-07-14 08:21:39'),
+(4071, '4', 'customer', 'order a product on : 2025-07-14 07:21:49', '::1', '2025-07-14 08:21:49'),
+(4072, '4', 'customer', 'order a product on : 2025-07-14 07:21:58', '::1', '2025-07-14 08:21:58'),
+(4073, '4', 'customer', 'order a product on : 2025-07-14 07:23:59', '::1', '2025-07-14 08:23:59'),
+(4074, '4', 'customer', 'Updated his profile on: 2025-07-14 07:28:25', '::1', '2025-07-14 08:28:25'),
+(4075, '4', 'customer', 'updated profile on 2025-07-14 07:38:00', '::1', '2025-07-14 08:38:00'),
+(4076, '4', 'customer', 'updated profile on 2025-07-14 07:38:09', '::1', '2025-07-14 08:38:09'),
+(4077, '4', 'customer', 'logged in as customer on: 2025-07-22 10:40:23', '::1', '2025-07-22 11:40:23'),
+(4078, '5', 'admin', 'logged in as admin on: 2025-07-22 10:40:37', '::1', '2025-07-22 11:40:37'),
+(4079, '5', 'admin', 'logged in as admin on: 2025-07-22 10:42:05', '::1', '2025-07-22 11:42:05'),
+(4080, '5', 'admin', 'logged in as admin on: 2025-07-22 10:42:20', '::1', '2025-07-22 11:42:20'),
+(4081, '5', 'admin', 'logged in as admin on: 2025-07-22 10:43:30', '::1', '2025-07-22 11:43:30'),
+(4082, '5', 'admin', 'logged in as admin on: 2025-07-22 10:44:35', '::1', '2025-07-22 11:44:35'),
+(4083, '4', 'customer', 'logged in as customer on: 2025-07-22 11:04:42', '::1', '2025-07-22 12:04:42'),
+(4084, '4', 'customer', 'order a product on : 2025-07-22 11:05:13', '::1', '2025-07-22 12:05:13');
 
 -- --------------------------------------------------------
 
@@ -174,7 +191,15 @@ INSERT INTO `carts` (`id`, `user_id`, `status`, `created_at`, `updated_at`) VALU
 (48, 4, 'converted', '2025-07-11 21:45:20', '2025-07-11 21:45:20'),
 (49, 4, 'converted', '2025-07-11 21:53:33', '2025-07-11 21:53:33'),
 (50, 4, 'converted', '2025-07-11 22:01:06', '2025-07-11 22:01:06'),
-(51, 4, 'converted', '2025-07-11 22:02:02', '2025-07-11 22:02:02');
+(51, 4, 'converted', '2025-07-11 22:02:02', '2025-07-11 22:02:02'),
+(52, 4, 'converted', '2025-07-14 07:07:09', '2025-07-14 07:07:09'),
+(53, 4, 'converted', '2025-07-14 07:20:46', '2025-07-14 07:20:46'),
+(54, 4, 'converted', '2025-07-14 07:21:37', '2025-07-14 07:21:37'),
+(55, 4, 'converted', '2025-07-14 07:21:47', '2025-07-14 07:21:47'),
+(56, 4, 'converted', '2025-07-14 07:21:56', '2025-07-14 07:21:56'),
+(57, 4, 'converted', '2025-07-14 07:22:29', '2025-07-14 07:22:29'),
+(58, 4, 'converted', '2025-07-14 07:23:57', '2025-07-14 07:23:57'),
+(59, 4, 'converted', '2025-07-22 11:05:09', '2025-07-22 11:05:09');
 
 -- --------------------------------------------------------
 
@@ -283,7 +308,28 @@ INSERT INTO `cart_items` (`id`, `cart_id`, `product_id`, `qty`, `price_each`) VA
 (96, 50, 5, 1, 340000),
 (97, 50, 8, 1, 34000),
 (98, 51, 5, 1, 340000),
-(99, 51, 13, 2, 1000000);
+(99, 51, 13, 2, 1000000),
+(100, 52, 3, 1, 250),
+(101, 52, 2, 1, 5300),
+(102, 52, 1, 1, 200000),
+(103, 53, 3, 1, 250),
+(104, 53, 2, 1, 5300),
+(105, 53, 1, 1, 200000),
+(106, 54, 3, 1, 250),
+(107, 54, 2, 1, 5300),
+(108, 54, 1, 1, 200000),
+(109, 55, 3, 1, 250),
+(110, 55, 2, 1, 5300),
+(111, 55, 1, 1, 200000),
+(112, 56, 3, 1, 250),
+(113, 56, 2, 1, 5300),
+(114, 56, 1, 1, 200000),
+(115, 57, 5, 3, 340000),
+(116, 58, 10, 1, 19000),
+(117, 58, 9, 1, 100000),
+(118, 59, 5, 1, 340000),
+(119, 59, 2, 1, 5300),
+(120, 59, 1, 1, 200000);
 
 -- --------------------------------------------------------
 
@@ -343,7 +389,9 @@ INSERT INTO `fraud_cases` (`id`, `scope`, `user_id`, `risk_score`, `status`, `an
 (25, 'checkout', 4, 54, 'open', NULL, '2025-07-11 22:01:09', NULL),
 (26, 'checkout', 4, 74, 'open', NULL, '2025-07-11 22:02:06', NULL),
 (27, 'login', 4, 130, 'open', NULL, '2025-07-11 22:05:13', NULL),
-(28, 'login', 4, 100, 'open', NULL, '2025-07-11 22:07:43', NULL);
+(28, 'login', 4, 100, 'open', NULL, '2025-07-11 22:07:43', NULL),
+(29, 'checkout', 4, 74, 'open', NULL, '2025-07-14 07:07:51', NULL),
+(30, 'checkout', 4, 50, 'open', NULL, '2025-07-14 07:22:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -415,7 +463,15 @@ INSERT INTO `login_attempts` (`id`, `user_id`, `email_submitted`, `user_agent`, 
 (38, 4, 'newleastpaysolution@gmail.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '::1', 0, 'bad_password', '2025-07-11 22:05:13'),
 (39, 5, 'newleastpaysolution@yahoo.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '::1', 1, NULL, '2025-07-11 22:06:24'),
 (40, 4, 'newleastpaysolution@gmail.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '::1', 0, 'bad_password', '2025-07-11 22:07:16'),
-(41, 4, 'newleastpaysolution@gmail.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '::1', 0, 'frequent_login_failures', '2025-07-11 22:07:43');
+(41, 4, 'newleastpaysolution@gmail.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '::1', 0, 'frequent_login_failures', '2025-07-11 22:07:43'),
+(42, 4, 'newleastpaysolution@gmail.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '::1', 1, NULL, '2025-07-14 07:04:38'),
+(43, 4, 'newleastpaysolution@gmail.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', '::1', 1, NULL, '2025-07-22 10:40:23'),
+(44, 5, 'newleastpaysolution@yahoo.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', '::1', 1, NULL, '2025-07-22 10:40:37'),
+(45, 5, 'newleastpaysolution@yahoo.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', '::1', 1, NULL, '2025-07-22 10:42:05'),
+(46, 5, 'newleastpaysolution@yahoo.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', '::1', 1, NULL, '2025-07-22 10:42:20'),
+(47, 5, 'newleastpaysolution@yahoo.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', '::1', 1, NULL, '2025-07-22 10:43:30'),
+(48, 5, 'newleastpaysolution@yahoo.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', '::1', 1, NULL, '2025-07-22 10:44:35'),
+(49, 4, 'newleastpaysolution@gmail.com', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', '::1', 1, NULL, '2025-07-22 11:04:42');
 
 -- --------------------------------------------------------
 
@@ -438,24 +494,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `cart_id`, `user_id`, `address_id`, `total`, `status`, `created_at`) VALUES
-(24, 26, 4, 14, 680000, 'paid', '2025-07-11 20:27:14'),
-(25, 27, 4, 14, 680000, 'paid', '2025-07-11 20:28:45'),
-(26, 28, 4, 14, 680000, 'paid', '2025-07-11 20:33:43'),
-(27, 29, 4, 14, 680000, 'paid', '2025-07-11 20:37:28'),
-(28, 30, 4, 14, 680000, 'paid', '2025-07-11 20:38:05'),
-(29, 31, 4, 14, 340250, 'paid', '2025-07-11 20:49:41'),
-(30, 32, 4, 14, 340250, 'paid', '2025-07-11 20:50:05'),
-(31, 33, 4, 14, 340250, 'paid', '2025-07-11 21:01:19'),
-(33, 35, 4, 14, 340250, 'paid', '2025-07-11 21:15:33'),
-(34, 36, 4, 14, 340250, 'paid', '2025-07-11 21:15:57'),
-(35, 37, 4, 14, 340250, 'paid', '2025-07-11 21:16:08'),
-(36, 38, 4, 14, 340250, 'paid', '2025-07-11 21:16:20'),
-(38, 40, 4, 14, 340000, 'paid', '2025-07-11 21:18:50'),
-(45, 47, 4, 14, 680000, 'paid', '2025-07-11 21:44:07'),
-(46, 48, 4, 14, 680000, 'paid', '2025-07-11 21:45:20'),
-(47, 49, 4, 14, 340250, 'paid', '2025-07-11 21:53:33'),
-(48, 50, 4, 14, 374000, 'paid', '2025-07-11 22:01:06'),
-(49, 51, 4, 14, 2340000, 'paid', '2025-07-11 22:02:02');
+(57, 59, 4, 14, 545300, 'paid', '2025-07-22 11:05:10');
 
 -- --------------------------------------------------------
 
@@ -480,44 +519,7 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `order_id`, `provider`, `provider_txn_id`, `amount`, `status`, `card_last4`, `card_brand`, `processed_at`) VALUES
-(1, 1, 'demo', 'demo_686c1538b8c015.45350852', 205550, 'captured', '3443', 'VISA', '2025-07-07 18:43:04'),
-(2, 2, 'Demo', 'demo_686c177fa02148.99241733', 205300, 'captured', '3232', 'VISA', '2025-07-07 18:52:47'),
-(3, 3, 'Demo', 'demo_686c1862c17ef4.90307465', 205300, 'captured', '3232', 'VISA', '2025-07-07 18:56:34'),
-(4, 4, 'Demo', 'demo_686c19367421a7.25926757', 340250, 'captured', '3567', 'VISA', '2025-07-07 19:00:06'),
-(5, 5, 'Demo', 'demo_686c1c82a9c0d7.18335292', 205550, 'captured', '6777', 'VISA', '2025-07-07 19:14:10'),
-(6, 6, 'Demo', 'demo_686c239aa9eba3.26980876', 680500, 'captured', '7666', 'VISA', '2025-07-07 19:44:26'),
-(7, 7, 'Demo', 'demo_6871017066d863.63612704', 345550, 'captured', '2121', 'VISA', '2025-07-11 12:20:00'),
-(8, 8, 'Demo', 'demo_687101cbd24e03.15899884', 680000, 'captured', '4242', 'VISA', '2025-07-11 12:21:31'),
-(9, 9, 'Demo', 'demo_6871030e1ceb61.28837007', 200000, 'captured', '2323', 'VISA', '2025-07-11 12:26:54'),
-(10, 10, 'Demo', 'demo_687108d9367b30.07880966', 640000, 'captured', '3232', 'VISA', '2025-07-11 12:51:37'),
-(11, 11, 'Demo', 'demo_687109583b7464.56743708', 5550, 'captured', '8786', 'VISA', '2025-07-11 12:53:44'),
-(12, 12, 'Demo', 'demo_68710ee6909206.77216633', 5550, 'captured', '8786', 'VISA', '2025-07-11 13:17:26'),
-(13, 13, 'Demo', 'demo_68710efb779a79.23574183', 5550, 'captured', '8786', 'VISA', '2025-07-11 13:17:47'),
-(14, 14, 'Demo', 'demo_68710f075d5031.36872889', 5550, 'captured', '8786', 'VISA', '2025-07-11 13:17:59'),
-(15, 15, 'Demo', 'demo_68711223bf3df2.97609719', 659000, 'captured', '7654', 'VISA', '2025-07-11 13:31:15'),
-(16, 16, 'Demo', 'demo_6871125858a8c1.90596086', 659000, 'captured', '7654', 'VISA', '2025-07-11 13:32:08'),
-(17, 17, 'Demo', 'demo_6871126953dc83.31130632', 659000, 'captured', '7654', 'VISA', '2025-07-11 13:32:25'),
-(18, 18, 'Demo', 'demo_68711277a98001.04658556', 659000, 'captured', '7654', 'VISA', '2025-07-11 13:32:39'),
-(19, 19, 'Demo', 'demo_6871128879cf37.68816469', 659000, 'captured', '7654', 'VISA', '2025-07-11 13:32:56'),
-(20, 20, 'Demo', 'demo_6871130963b2b2.90203015', 659000, 'captured', '7654', 'VISA', '2025-07-11 13:35:05'),
-(21, 21, 'Demo', 'demo_687113186eb986.62232385', 659000, 'captured', '7654', 'VISA', '2025-07-11 13:35:20'),
-(22, 22, 'Demo', 'demo_6871133e1042a3.07698493', 340000, 'captured', '2334', 'VISA', '2025-07-11 13:35:58'),
-(23, 23, 'Demo', 'demo_687118ed5609d0.11977433', 345300, 'captured', '5447', 'VISA', '2025-07-11 14:00:13'),
-(24, 24, 'Demo', 'demo_687173a743d689.31225843', 680000, 'captured', '6756', 'VISA', '2025-07-11 20:27:19'),
-(25, 25, 'Demo', 'demo_68717401aabf36.54132671', 680000, 'captured', '6756', 'VISA', '2025-07-11 20:28:49'),
-(26, 26, 'Demo', 'demo_6871752bdd0284.46869728', 680000, 'captured', '6756', 'VISA', '2025-07-11 20:33:47'),
-(27, 27, 'Demo', 'demo_6871760ef06f00.64057958', 680000, 'captured', '6756', 'VISA', '2025-07-11 20:37:34'),
-(28, 28, 'Demo', 'demo_68717633324ac3.78130849', 680000, 'captured', '6756', 'VISA', '2025-07-11 20:38:11'),
-(29, 29, 'Demo', 'demo_687178e86d48a5.59003171', 340250, 'captured', '3333', 'VISA', '2025-07-11 20:49:44'),
-(30, 30, 'Demo', 'demo_687179011c95c2.79591881', 340250, 'captured', '3333', 'VISA', '2025-07-11 20:50:09'),
-(31, 31, 'Demo', 'demo_68717ba338b652.36480435', 340250, 'captured', '3333', 'VISA', '2025-07-11 21:01:23'),
-(32, 33, 'Demo', 'demo_68717ef90af944.36860066', 340250, 'captured', '7654', 'VISA', '2025-07-11 21:15:37'),
-(33, 34, 'Demo', 'demo_68717f111d8084.39739172', 340250, 'captured', '7654', 'VISA', '2025-07-11 21:16:01'),
-(34, 35, 'Demo', 'demo_68717f1c2b0026.91891667', 340250, 'captured', '7654', 'VISA', '2025-07-11 21:16:12'),
-(35, 36, 'Demo', 'demo_68717f2911cfc2.51039731', 340250, 'captured', '7654', 'VISA', '2025-07-11 21:16:25'),
-(36, 38, 'Demo', 'demo_68717fbd99af36.74203648', 340000, 'captured', '1212', 'VISA', '2025-07-11 21:18:53'),
-(37, 45, 'Demo', 'demo_687185aa271305.69405552', 680000, 'captured', '5678', 'VISA', '2025-07-11 21:44:10'),
-(38, 46, 'Demo', 'demo_687185f3c502a1.94176234', 680000, 'captured', '7887', 'VISA', '2025-07-11 21:45:23');
+(44, 57, 'Demo', 'demo_687f70690f91b0.00663697', 545300, 'captured', '2232', 'VISA', '2025-07-22 11:05:13');
 
 -- --------------------------------------------------------
 
@@ -541,14 +543,14 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`, `stock_qty`, `created_at`, `updated_at`) VALUES
-(1, 'computer system', 'full set with printer', 'uploadImage/products/prod_686bee977be051.07493362.jfif', 200000, 21, '2025-07-07 15:58:15', '2025-07-11 13:35:16'),
-(2, 'CD Drive', '', 'uploadImage/products/prod_686beebf2107e9.61351280.jfif', 5300, 11, '2025-07-07 15:58:55', '2025-07-11 14:00:09'),
-(3, 'CD-ROM', 'sony', 'uploadImage/products/prod_686beedc5d9ab6.29898817.jfif', 250, 182, '2025-07-07 15:59:24', '2025-07-11 21:53:33'),
-(5, 'Electric Adjustable Computer Table', 'Key Features\nElectric Height Adjustment\n', 'uploadImage/products/prod_686bef2aefc8d3.47142352.jfif', 340000, 13, '2025-07-07 16:00:42', '2025-07-11 22:02:02'),
+(1, 'computer system', 'full set with printer', 'uploadImage/products/prod_686bee977be051.07493362.jfif', 200000, 15, '2025-07-07 15:58:15', '2025-07-22 11:05:10'),
+(2, 'CD Drive', '', 'uploadImage/products/prod_686beebf2107e9.61351280.jfif', 5300, 5, '2025-07-07 15:58:55', '2025-07-22 11:05:10'),
+(3, 'CD-ROM', 'sony', 'uploadImage/products/prod_686beedc5d9ab6.29898817.jfif', 250, 177, '2025-07-07 15:59:24', '2025-07-14 07:21:56'),
+(5, 'Electric Adjustable Computer Table', 'Key Features\nElectric Height Adjustment\n', 'uploadImage/products/prod_686bef2aefc8d3.47142352.jfif', 340000, 9, '2025-07-07 16:00:42', '2025-07-22 11:05:09'),
 (7, 'Monitor', 'Fairly used Samsung monitor', 'uploadImage/products/prod_686bef9e403274.34405447.jfif', 45000, 43, '2025-07-07 16:02:38', '2025-07-07 16:02:38'),
 (8, 'System Unit', 'Dell', 'uploadImage/products/prod_686befb4909103.75998428.jfif', 34000, 77, '2025-07-07 16:03:00', '2025-07-11 22:01:06'),
-(9, 'Router', '', 'uploadImage/products/prod_686bf032b70bf7.76535503.jfif', 100000, 69, '2025-07-07 16:05:06', '2025-07-11 13:35:16'),
-(10, 'Modem', '3GM Universal Modem', 'uploadImage/products/prod_686bf05ae73c23.64981790.jfif', 19000, 37, '2025-07-07 16:05:46', '2025-07-11 13:35:16'),
+(9, 'Router', '', 'uploadImage/products/prod_686bf032b70bf7.76535503.jfif', 100000, 68, '2025-07-07 16:05:06', '2025-07-14 07:23:57'),
+(10, 'Modem', '3GM Universal Modem', 'uploadImage/products/prod_686bf05ae73c23.64981790.jfif', 19000, 36, '2025-07-07 16:05:46', '2025-07-14 07:23:57'),
 (11, 'Joystiick', '', 'uploadImage/products/prod_686bf07793c290.77950718.jfif', 23590, 76, '2025-07-07 16:06:15', '2025-07-07 16:06:15'),
 (12, 'MacBook Air', '', 'uploadImage/products/prod_686bf095aa8732.95292316.webp', 1250000, 45, '2025-07-07 16:06:45', '2025-07-07 16:06:45'),
 (13, 'Macbook Laptop', '', 'uploadImage/products/prod_686bf0b0465473.95909188.webp', 1000000, 19, '2025-07-07 16:07:12', '2025-07-11 22:02:02');
@@ -574,13 +576,8 @@ CREATE TABLE `risk_signals` (
 --
 
 INSERT INTO `risk_signals` (`id`, `order_id`, `user_id`, `signal_type`, `signal_value`, `weight`, `created_at`) VALUES
-(34, 36, 4, 'frequent_checkout', 'More than 3 orders in 2 minutes', 20, '2025-07-11 21:16:25'),
-(37, 38, 4, 'high_risk_country', 'Nigeria', 4, '2025-07-11 21:18:53'),
-(46, 45, 4, 'high_ticket', '₦680000', 10, '2025-07-11 21:44:10'),
-(47, 45, 4, 'high_risk_country', 'Nigeria', 10, '2025-07-11 21:44:10'),
-(48, 46, 4, 'high_ticket', '₦680000', 10, '2025-07-11 21:45:23'),
-(49, 49, 4, 'high_ticket', '₦2340000', 10, '2025-07-11 22:02:06'),
-(50, 49, 4, 'high_risk_country', 'Nigeria', 10, '2025-07-11 22:02:06');
+(53, 57, 4, 'high_ticket', '₦545300', 10, '2025-07-22 11:05:13'),
+(54, 57, 4, 'high_risk_country', 'Nigeria', 10, '2025-07-22 11:05:13');
 
 -- --------------------------------------------------------
 
@@ -605,8 +602,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password_hash`, `full_name`, `phone`, `role`, `status`, `created_at`, `updated_at`) VALUES
-(4, 'newleastpaysolution@gmail.com', '$2y$10$St13e5IpnU1bG5pvx//GV.BdcipkL4M/TVxyOujfzyLxU5ltZt4bW', 'Mmakamba Okorie', '08067361023', 'customer', 1, '2025-07-06 21:48:58', '2025-07-11 22:08:00'),
-(5, 'newleastpaysolution@yahoo.com', '$2y$10$1.c2KKmCGlha3csy9IBIKetTD4xzYnaXHd/lxB7v9dBkf82oCZhh2', 'Ndueso Walter', '08067361023', 'Admin', 1, '2025-07-07 11:17:50', '2025-07-10 13:21:28');
+(4, 'newleastpaysolution@gmail.com', '$2y$10$St13e5IpnU1bG5pvx//GV.BdcipkL4M/TVxyOujfzyLxU5ltZt4bW', 'Helen Okorie', '08067361023', 'customer', 1, '2025-07-06 21:48:58', '2025-07-14 07:41:07'),
+(5, 'newleastpaysolution@yahoo.com', '$2y$10$1.c2KKmCGlha3csy9IBIKetTD4xzYnaXHd/lxB7v9dBkf82oCZhh2', 'Ndueso Walter', '08067361023', 'admin', 1, '2025-07-07 11:17:50', '2025-07-14 07:41:05');
 
 --
 -- Indexes for dumped tables
@@ -728,7 +725,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4068;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4085;
 
 --
 -- AUTO_INCREMENT for table `addresses`
@@ -740,13 +737,13 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `chargebacks`
@@ -764,7 +761,7 @@ ALTER TABLE `device_fingerprints`
 -- AUTO_INCREMENT for table `fraud_cases`
 --
 ALTER TABLE `fraud_cases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `fraud_rules`
@@ -776,19 +773,19 @@ ALTER TABLE `fraud_rules`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -800,7 +797,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `risk_signals`
 --
 ALTER TABLE `risk_signals`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `users`

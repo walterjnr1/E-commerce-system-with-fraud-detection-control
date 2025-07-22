@@ -138,7 +138,7 @@ if (isset($_POST['btnlogin'])) {
         if ($user['role'] === 'customer') {
           header("Location: index.php");
           exit;
-        } elseif ($user['role'] === 'Admin') {
+        } elseif ($user['role'] === 'admin') {
           header("Location: Admin/index.php");
           exit;
         } else {

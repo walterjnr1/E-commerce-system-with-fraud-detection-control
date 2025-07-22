@@ -31,24 +31,25 @@ if (!isset($_SESSION['user_id'])) {
                     
                     <div class="bg-indigo-50 rounded-xl p-6 shadow flex flex-col">
                         <span class="text-indigo-600 font-semibold text-lg mb-2">Products</span>
-                        <span class="text-3xl font-bold mb-1"><?php //echo $no_manager_tickets['total'] ?></span>
-                        <a href="ticket-record" class="text-indigo-700 hover:underline mt-auto">View Tickets</a>                    
+                        <span class="text-3xl font-bold mb-1"><?php echo $total_products; ?></span>
+                        <a href="product-record.php" class="text-indigo-700 hover:underline mt-auto">View Products</a>                    
                     </div>
                     
                     <div class="bg-green-50 rounded-xl p-6 shadow flex flex-col">
-                        <span class="text-green-600 font-semibold text-lg mb-2">Transactions</span>
-                        <span class="text-3xl font-bold mb-1"><?php //echo $no_manager_transactions['total'] ?></span>
-                        <a href="payments" class="text-green-700 hover:underline mt-auto">View Transactions</a>                    
+                        <span class="text-green-600 font-semibold text-lg mb-2">Payments</span>
+                        <span class="text-3xl font-bold mb-1"><?php echo $total_payments ?></span>
+                        <a href="payment-record.php" class="text-green-700 hover:underline mt-auto">View Payments</a>                    
                     </div>
                     <div class="bg-yellow-50 rounded-xl p-6 shadow flex flex-col">
                         <span class="text-yellow-600 font-semibold text-lg mb-2">Fraud Cases</span>
-                        <span class="text-3xl font-bold mb-1"><?php //echo $no_manager_event['total'] ?></span>
-                        <a href="event-record" class="text-yellow-700 hover:underline mt-auto">View Event</a>                    
+                        <span class="text-3xl font-bold mb-1"><?php echo $total_fraud_cases; ?></span>
+                       <a href="fraud-cases-record.php" class="text-red-700 hover:underline mt-auto">View Fraud Cases</a>                    
+
                     </div>
                     <div class="bg-red-50 rounded-xl p-6 shadow flex flex-col">
                         <span class="text-red-600 font-semibold text-lg mb-2">Orders</span>
-                        <span class="text-3xl font-bold mb-1"><?php //echo $no_manager_event['total'] ?></span>
-                        <a href="event-record" class="text-red-700 hover:underline mt-auto">View Event</a>                    
+                        <span class="text-3xl font-bold mb-1"><?php echo $total_orders  ?></span>
+                        <a href="order-record.php" class="text-red-700 hover:underline mt-auto">View Order</a>                    
                     </div>
                 </div>
                 
